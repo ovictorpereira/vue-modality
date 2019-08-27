@@ -11,6 +11,7 @@
             <div
                 class="vue-modality-dialog"
                 :style="`width: ${width}`"
+                :class="{'margintop': !centered}"
             >
                 <header v-if="!hideHeader" >
                     <span class="vm-close-btn" @click="hide"></span>
@@ -190,6 +191,7 @@ export default {
     width: 100%;
     overflow: auto;
     top: 0;
+    left: 0;
     display: flex;
     z-index: 9999;
     justify-content: center;
@@ -322,6 +324,10 @@ export default {
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+
+.margintop {
+    margin-top: 10px;
 }
 
 .modal-fade-enter,
