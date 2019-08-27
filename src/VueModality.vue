@@ -20,7 +20,7 @@
                     </div>
                 </header>
 
-                <main class="vm-body" :class="error || success ? 'vm-flex-center' : ''">
+                <main class="vm-body" :class="{'vm-text-center': error || success || textCenter}">
                     <div class="vm-icon vm-error-icon" v-if="error">
                         <div class="vm-inner-error-icon"></div>
                     </div>
@@ -77,6 +77,10 @@ export default {
         overlay: {
             type: Boolean,
             default: true
+        },
+        'text-center': {
+            type: Boolean,
+            default: false
         },
         title: {
             type: String,
@@ -320,10 +324,8 @@ export default {
     color: white;
 }
 
-.vm-flex-center {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+.vm-text-center {
+    text-align: center;
 }
 
 .margintop {
@@ -347,6 +349,8 @@ export default {
     background-color: #fff;
     position: relative;
     overflow: hidden;
+    display: block;
+    margin: 0 auto;
 }
 
 .vm-error-icon {
@@ -359,7 +363,7 @@ export default {
     position: relative;
     display: inline-block;
     content: "\D7";
-    left: 7px;
+    left: 1px;
     bottom: 24px;
     font-size: 68px;
     animation-name: jump;
@@ -401,8 +405,8 @@ export default {
     width: 4px;
     height: 32px;
     background-color: #29af18;
-    left: 34px;
-    top: 1px;
+    left: 30px;
+    top: 7px;
     border-radius: 2px;
     animation-name: stem;
     animation-duration: .4s;
@@ -419,7 +423,7 @@ export default {
     }
     100% {
         height: 32px;
-        top: 1px;
+        top: 7px;
     }
 }
 
@@ -428,8 +432,8 @@ export default {
     width: 18px;
     height: 4px;
     background-color: #29af18;
-    left: 20px;
-    top: 30px;
+    left: 15px;
+    top: 36px;
     border-radius: 2px;
     animation-name: kick;
     animation-duration: 1s;

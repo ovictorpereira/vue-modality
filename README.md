@@ -45,6 +45,7 @@ this.$refs.myRef.hide();
 | width         |               String |    400px                   |                                             |
 | centered   | Boolean           | false                    | Vertically  centered   |
 | overlay    | Boolean           | false     |  |
+| text-center         |               Boolean |    false                   |                                             |
 | title     |         String           |     Modal                |                             |
 | title-class   | String           |                        |                                           |
 | hide-header     | Boolean           |      false                  |                 |
