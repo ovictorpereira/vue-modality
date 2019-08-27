@@ -10,7 +10,7 @@ const argv = minimist(process.argv.slice(2));
 const config = {
     input: "src/entry.js",
     output: {
-        name: "SimpleAlert",
+        name: "VueModality",
         exports: "named"
     },
     plugins: [
