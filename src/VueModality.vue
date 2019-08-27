@@ -84,7 +84,7 @@ export default {
         },
         'title-class': {
             type: String,
-            default: 'Modal'
+            default: ''
         },
         'hide-header': {
             type: Boolean,
