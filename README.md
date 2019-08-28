@@ -8,34 +8,34 @@ $ npm install vue-modality
 ``` 
 Register the component globally...
 ```js
-import Vue from 'vue';
-import VueModality from 'vue-modality';
+import Vue from 'vue'
+import VueModality from 'vue-modality'
 
-Vue.use(VueModality);
+Vue.use(VueModality)
 ```
 
-... or register the component locally
+... or register it locally
 ```js
-import VueModality from 'vue-modality';
+import VueModality from 'vue-modality'
 export default {
-	components: {
-		VueModality
-	}
+  components: {
+    VueModality
+  }
 };
 ```
 
 ## Usage
 ```html
 <vue-modality ref="myRef" title="My Title" centered>
-		body content
+  body content
 </vue-modality>
 ```
 ```js
-// give your modal a ref and open it by calling
-this.$refs.myRef.open();
+// give your modal a ref and open it by calling:
+this.$refs.myRef.open()
 
-// or close it by calling
-this.$refs.myRef.hide();
+// or close it by calling:
+this.$refs.myRef.hide()
 ```
 
 ## Available props
