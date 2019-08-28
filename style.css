@@ -1,0 +1,52 @@
+* {
+    box-sizing: border-box;
+}
+
+a, a:hover, a:visited, a:link, a:active {
+    text-decoration: none;
+}
+
+.container {
+    display: block;
+    margin: 0 auto;
+    width: 900px;
+    font-family: 'Ubuntu', sans-serif;
+}
+
+.example-btn {
+    flex-basis: 260px;
+}
+
+@media (max-width: 960px) {
+    .container {
+        width: 98%;
+    }
+    .example-btn {
+        flex-basis: 130px;
+    }
+}
+
+.example {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 18px;
+}
+
+.example-code {
+    flex: 1;
+    margin: 0!important;
+}
+
+.btn-example {
+    padding: .3rem .75rem;
+    border-radius: 2px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    border: 0;
+    transition: all .4s ease;
+    border: 0;
+    background-color: #2a6ec3;
+    color: #fff;
+    cursor: pointer;
+}
