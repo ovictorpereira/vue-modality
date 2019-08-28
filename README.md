@@ -1,5 +1,6 @@
 # vue-modality
 A really nice Vue.js modal component.
+#### [Demo page](https://ovictorpereira.github.io/vue-modality/ "Demo page")
 
 ## Installation
 NPM
