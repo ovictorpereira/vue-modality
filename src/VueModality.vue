@@ -344,14 +344,15 @@ export default {
 }
 
 .vm-icon {
-    width: 52px;
-    height: 52px;
+    width: 60px;
+    height: 60px;
     border-radius: 50%;
     background-color: #fff;
     position: relative;
     overflow: hidden;
     display: block;
     margin: 0 auto;
+    box-sizing: border-box;
 }
 
 .vm-error-icon {
