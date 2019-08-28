@@ -298,6 +298,7 @@ export default {
     margin-left: 6px;
     border: 0;
     transition: all 0.4s ease;
+    cursor: pointer;
 }
 
 .vm-btn:hover {
@@ -343,8 +344,8 @@ export default {
 }
 
 .vm-icon {
-    width: 60px;
-    height: 60px;
+    width: 52px;
+    height: 52px;
     border-radius: 50%;
     background-color: #fff;
     position: relative;
