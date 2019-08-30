@@ -488,8 +488,8 @@ export default {
     border-right: 2px solid #f9f9f9;
     border-bottom: 2px solid #f9f9f9;
     border-radius: 50%;
-    width: 1.3rem;
-    height: 1.3rem;
+    width: 14px;
+    height: 14px;
     animation: spin 1s linear infinite;
 }
 
