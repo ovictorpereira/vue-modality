@@ -54,6 +54,7 @@ this.$refs.myRef.hide()
 | ok-title     | String           |            Ok            |                  |
 | ok-disabled     | Boolean           |         false               |                 |
 | ok-class     | String           |                        |                 |
+| ok-loading     | Boolean           |        false          |      Shows the loading icon           |
 | hide-ok     | Boolean           |      false                  |       Hides the ok button          |
 | cancel-title     | String           |          Cancel              |                |
 | cancel-disabled     | Boolean           |         false               |                 |
@@ -67,7 +68,7 @@ this.$refs.myRef.hide()
 ## Events
 | Event    |  Description |
 |----------|--------------|
-| open     |          |
-| hide     |          |
+| open     |  When you open the modal       |
+| hide     |   When you hide the modal       |
 | ok        |    When the Ok button is pressed      |
 | cancel        |    When the Cancel button is pressed      |
