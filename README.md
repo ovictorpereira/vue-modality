@@ -1,7 +1,7 @@
 # vue-modality
 A really nice Vue.js modal component.
 #### [Demo](https://ovictorpereira.github.io/vue-modality/ "Demo")
-#### [Sandbox](https://jsfiddle.net/ovictorpereira/hceu6mz4/4/ "Sandbox")
+#### [Sandbox](https://jsfiddle.net/ovictorpereira/hceu6mz4/15/ "Sandbox")
 
 ## Installation
 NPM
