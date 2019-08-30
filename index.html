@@ -37,7 +37,7 @@
             </vue-modality>
 
             <vue-modality ref="loading" :ok-loading="loading" @ok="okHandle()" title="Loading" centered @cancel="$refs.success.hide()">
-                CLick on the OK button
+                Click on the OK button
             </vue-modality>
 
             <vue-modality ref="close" no-close-on-backdrop no-close-on-esc hide-cancel title="Use the button" centered  @ok="$refs.close.hide()" @cancel="$refs.close.hide()">
@@ -81,7 +81,7 @@
                     <h3>Loading</h3>
                     <button class="btn-example" @click="modal('loading')">Click me</button>
                 </div>
-                <pre class="example-code"><code class="language-html">&lt;vue-modality ref="myRef" :ok-loading="loading" @ok="okHandle()" title="Loading" centered @cancel="$refs.success.hide()"&gt;&#013;  CLick on the OK button&#013;&lt;/vue-modality&gt;</code></pre>
+                <pre class="example-code"><code class="language-html">&lt;vue-modality ref="myRef" :ok-loading="loading" @ok="okHandle()" title="Loading" centered @cancel="$refs.success.hide()"&gt;&#013;  Click on the OK button&#013;&lt;/vue-modality&gt;</code></pre>
             </div>    
     
             <div class="example">
