@@ -327,6 +327,7 @@ export default {
     border: 0;
     transition: all 0.4s ease;
     cursor: pointer;
+    font: inherit!important;
 }
 
 .vm-btn:hover {
