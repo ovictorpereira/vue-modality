@@ -20,7 +20,10 @@
                     </div>
                 </header>
 
-                <main class="vm-body" :class="{'vm-text-center': error || success || textCenter}">
+                <main
+                    class="vm-body"
+                    :class="{'vm-text-center':  error || success || textCenter, 'vm-body-content-center': error || success}"
+                >
                     <div class="vm-icon vm-error-icon" v-if="error">
                         <div class="vm-inner-error-icon"></div>
                     </div>
@@ -49,11 +52,12 @@
                     <button
                         v-if="!hideOk"
                         class="vm-btn vm-ok-btn"
-                        :class="okClass"
+                        :class="[okClass, btnLoading]"
                         @click.stop="ok"
                         :disabled="okDisabled"
                     >
-                        {{okTitle}}
+                        <span v-if="!okLoading">{{okTitle}}</span>
+                        <div v-if="okLoading" class="vm-loader"></div>
                     </button>
                 </footer>
 
@@ -114,6 +118,10 @@ export default {
             type: Boolean,
             default: false
         },
+        'ok-loading': {
+            type: Boolean,
+            default: false
+        },
         'cancel-title': {
             type: String,
             default: 'Cancel'
@@ -158,11 +166,18 @@ export default {
             opened: false
         }
     },
+    computed: {
+        btnLoading () {
+            return this.okLoading ? 'vm-btn-loading' : ''
+        }
+    },
     methods: {
         open () {
+            this.$emit('open')
             this.opened = true
         },
         hide () {
+            this.$emit('hide')
             this.opened = false
         },
         backdrop () {
@@ -172,7 +187,8 @@ export default {
             if (!this.noCloseOnEsc && e.which === 27) this.hide()
         },
         ok (e) {
-            this.$emit('ok', e)
+            if (this.okLoading) return
+            else this.$emit('ok', e)
         },
         cancel (e) {
             this.$emit('cancel', e)
@@ -243,6 +259,7 @@ export default {
     z-index: 9999;
     opacity: .6;
 }
+
 .vm-close-btn:hover {
     opacity: 1;
 }
@@ -267,6 +284,11 @@ export default {
     transform: rotate(-45deg);
 }
 
+.vm-btn-loading {
+    opacity: .6;
+    cursor: default!important;
+}
+
 .vm-header {
     font-weight: bold;
     font-size: 16px;
@@ -280,6 +302,12 @@ export default {
 .vm-body {
     padding: 16px 0;
     flex: 1;
+    flex-direction: column;
+    display: flex;
+}
+
+.vm-body-content-center {
+    justify-content: center;
 }
 
 .vm-footer {
@@ -451,6 +479,22 @@ export default {
     100% {
         width: 18px;
     }
+}
+
+.vm-loader {
+    border: 2px solid transparent;
+    border-top: 2px solid #f9f9f9;
+    border-right: 2px solid #f9f9f9;
+    border-bottom: 2px solid #f9f9f9;
+    border-radius: 50%;
+    width: 1.3rem;
+    height: 1.3rem;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
 }
 
 </style>
