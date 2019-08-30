@@ -36,6 +36,10 @@
                 That was a success ;)
             </vue-modality>
 
+            <vue-modality ref="loading" :ok-loading="loading" @ok="okHandle()" title="Loading" centered @cancel="$refs.success.hide()">
+                CLick on the OK button
+            </vue-modality>
+
             <vue-modality ref="close" no-close-on-backdrop no-close-on-esc hide-cancel title="Use the button" centered  @ok="$refs.close.hide()" @cancel="$refs.close.hide()">
                 Now you can't exit the modal by hiting ESC or clicking outside the box
             </vue-modality>
@@ -74,6 +78,14 @@
     
             <div class="example">
                 <div class="example-btn">
+                    <h3>Loading</h3>
+                    <button class="btn-example" @click="modal('loading')">Click me</button>
+                </div>
+                <pre class="example-code"><code class="language-html">&lt;vue-modality ref="loading" :ok-loading="loading" @ok="okHandle()" title="Loading" centered @cancel="$refs.success.hide()"&gt;&#013;  CLick on the OK button&#013;&lt;/vue-modality&gt;</code></pre>
+            </div>    
+    
+            <div class="example">
+                <div class="example-btn">
                     <h3>No close on backdrop</h3>
                     <button class="btn-example" @click="modal('close')">Click me</button>
                 </div>
@@ -93,9 +105,19 @@
     <script>
         var app = new Vue({
             el: '#app',
+            data: {
+                loading: false
+            },
             methods: {
                 modal(name) {
                     this.$refs[name].open();
+                },
+                okHandle() {
+                    this.loading = true;
+                    setTimeout(() => {
+                        this.loading = false;
+                        this.$refs.loading.hide();
+                    }, 6000);
                 }
             },
         });
