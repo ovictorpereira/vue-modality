@@ -22,7 +22,7 @@
 
                 <main
                     class="vm-body"
-                    :class="{'vm-text-center':  error || success || textCenter, 'vm-body-content-center': error || success}"
+                    :class="{'vm-text-center':  error || success || textCenter}"
                 >
                     <div class="vm-icon vm-error-icon" v-if="error">
                         <div class="vm-inner-error-icon"></div>
@@ -302,13 +302,13 @@ export default {
 .vm-body {
     padding: 16px 0;
     flex: 1;
-    flex-direction: column;
-    display: flex;
+    /* flex-direction: column;
+    display: flex; */
 }
 
-.vm-body-content-center {
+/* .vm-body-content-center {
     justify-content: center;
-}
+} */
 
 .vm-footer {
     border-top: 1px solid #e9e9e9;
