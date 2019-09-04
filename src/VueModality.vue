@@ -44,7 +44,7 @@
                         class="vm-btn vm-cancel-btn"
                         :class="cancelClass"
                         @click.stop="cancel"
-                        :disabled="cancelDisabled"
+                        :disabled="cancelDisabled || okLoading"
                     >
                         {{cancelTitle}}
                     </button>
@@ -336,6 +336,7 @@ export default {
 
 .vm-btn:disabled {
     background: #c1c1c1;
+    cursor:default;
 }
 
 .vm-btn:disabled:hover {
