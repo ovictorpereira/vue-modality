@@ -228,6 +228,8 @@ export default {
 .vue-modality-dialog {
     position: absolute;
     min-height: 100px;
+    max-height: 100vh;
+    overflow: auto;
     background: white;
     border-radius: 3px;
     box-shadow: 0 1px 3px rgba(0, 0, 0, .2);
