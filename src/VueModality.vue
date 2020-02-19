@@ -233,7 +233,7 @@ export default {
     background: white;
     border-radius: 3px;
     box-shadow: 0 1px 3px rgba(0, 0, 0, .2);
-    padding: 13px;
+    padding: 12px 15px;
     display: flex;
     flex-direction: column;
 }
