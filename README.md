@@ -36,6 +36,36 @@ this.$refs.myRef.open()
 
 // or close it by calling:
 this.$refs.myRef.hide()
+
+```
+
+## CDN
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>vue-modality</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <script src="https://unpkg.com/vue-modality"></script>
+</head>
+<body>
+    <h1>Vue Modality</h1>
+    <div id="app">
+        <button @click="$refs.example.open()">
+            Open the modal
+        </button>
+        <vue-modality ref="example" @ok="$refs.example.hide()" @cancel="$refs.example.hide()" title="Modal" centered>
+            Use the footer buttons to close the modal
+        </vue-modality>
+    </div>
+
+    <script>
+        const vueApp = new Vue({el: '#app'});
+    </script>
+</body>
+</html>
 ```
 
 ## Available props
