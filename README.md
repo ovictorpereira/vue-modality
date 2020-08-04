@@ -53,7 +53,7 @@ this.$refs.myRef.hide()
     <script src="https://unpkg.com/vue-modality"></script>
 </head>
 <body>
-    <h1>Vue Modality</h1>
+    <h1>Vue-Modality</h1>
     <div id="app">
         <button @click="$refs.example.open()">
             Open the modal
