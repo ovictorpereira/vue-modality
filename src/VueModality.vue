@@ -20,7 +20,10 @@
                     </div>
                 </header>
 
-                <main class="vm-body" :class="{'vm-text-center': error || success || textCenter}">
+                <main
+                    class="vm-body"
+                    :class="{'vm-text-center':  error || success || textCenter}"
+                >
                     <div class="vm-icon vm-error-icon" v-if="error">
                         <div class="vm-inner-error-icon"></div>
                     </div>
@@ -41,7 +44,7 @@
                         class="vm-btn vm-cancel-btn"
                         :class="cancelClass"
                         @click.stop="cancel"
-                        :disabled="cancelDisabled"
+                        :disabled="cancelDisabled || okLoading"
                     >
                         {{cancelTitle}}
                     </button>
@@ -49,11 +52,12 @@
                     <button
                         v-if="!hideOk"
                         class="vm-btn vm-ok-btn"
-                        :class="okClass"
+                        :class="[okClass, btnLoading]"
                         @click.stop="ok"
                         :disabled="okDisabled"
                     >
-                        {{okTitle}}
+                        <span v-if="!okLoading">{{okTitle}}</span>
+                        <div v-if="okLoading" class="vm-loader"></div>
                     </button>
                 </footer>
 
@@ -114,6 +118,10 @@ export default {
             type: Boolean,
             default: false
         },
+        'ok-loading': {
+            type: Boolean,
+            default: false
+        },
         'cancel-title': {
             type: String,
             default: 'Cancel'
@@ -158,11 +166,18 @@ export default {
             opened: false
         }
     },
+    computed: {
+        btnLoading () {
+            return this.okLoading ? 'vm-btn-loading' : ''
+        }
+    },
     methods: {
         open () {
+            this.$emit('open')
             this.opened = true
         },
         hide () {
+            this.$emit('hide')
             this.opened = false
         },
         backdrop () {
@@ -172,7 +187,8 @@ export default {
             if (!this.noCloseOnEsc && e.which === 27) this.hide()
         },
         ok (e) {
-            this.$emit('ok', e)
+            if (this.okLoading) return
+            else this.$emit('ok', e)
         },
         cancel (e) {
             this.$emit('cancel', e)
@@ -212,10 +228,12 @@ export default {
 .vue-modality-dialog {
     position: absolute;
     min-height: 100px;
+    max-height: 100vh;
+    overflow: auto;
     background: white;
     border-radius: 3px;
     box-shadow: 0 1px 3px rgba(0, 0, 0, .2);
-    padding: 13px;
+    padding: 12px 15px;
     display: flex;
     flex-direction: column;
 }
@@ -243,6 +261,7 @@ export default {
     z-index: 9999;
     opacity: .6;
 }
+
 .vm-close-btn:hover {
     opacity: 1;
 }
@@ -267,6 +286,11 @@ export default {
     transform: rotate(-45deg);
 }
 
+.vm-btn-loading {
+    opacity: .6;
+    cursor: default!important;
+}
+
 .vm-header {
     font-weight: bold;
     font-size: 16px;
@@ -280,7 +304,13 @@ export default {
 .vm-body {
     padding: 16px 0;
     flex: 1;
+    /* flex-direction: column;
+    display: flex; */
 }
+
+/* .vm-body-content-center {
+    justify-content: center;
+} */
 
 .vm-footer {
     border-top: 1px solid #e9e9e9;
@@ -298,6 +328,8 @@ export default {
     margin-left: 6px;
     border: 0;
     transition: all 0.4s ease;
+    cursor: pointer;
+    font: inherit!important;
 }
 
 .vm-btn:hover {
@@ -306,6 +338,7 @@ export default {
 
 .vm-btn:disabled {
     background: #c1c1c1;
+    cursor:default;
 }
 
 .vm-btn:disabled:hover {
@@ -351,6 +384,7 @@ export default {
     overflow: hidden;
     display: block;
     margin: 0 auto;
+    box-sizing: border-box;
 }
 
 .vm-error-icon {
@@ -449,6 +483,22 @@ export default {
     100% {
         width: 18px;
     }
+}
+
+.vm-loader {
+    border: 2px solid transparent;
+    border-top: 2px solid #f9f9f9;
+    border-right: 2px solid #f9f9f9;
+    border-bottom: 2px solid #f9f9f9;
+    border-radius: 50%;
+    width: 14px;
+    height: 14px;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
 }
 
 </style>
