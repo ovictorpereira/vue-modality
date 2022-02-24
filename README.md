@@ -1,7 +1,7 @@
 # vue-modality
 A really nice Vue.js modal component. (**compatible with Vue.js 2**)
 
-If you are looking for the **Vue.js 3** version, visit: [vue-modality-v3](https://ovictorpereira.github.io/vue-modality-v3/ "vue-modality-v3")
+If you are looking for the **Vue.js 3** version, visit: [vue-modality-v3](https://github.com/ovictorpereira/vue-modality-v3/ "vue-modality-v3")
 #### [Demo](https://ovictorpereira.github.io/vue-modality/ "Demo")
 #### [Sandbox](https://jsfiddle.net/ovictorpereira/hceu6mz4/17/ "Sandbox")
 
